@@ -17,6 +17,12 @@
             <defaultOutputDevice>Speaker</defaultOutputDevice>
 
             <mixPorts>
+				<!--Spatial Audio-->
+                <mixPort name="immersive_out" role="source" flags="AUDIO_OUTPUT_FLAG_SPATIALIZER">
+                    <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+					</mixPort>
+                <!--Spatial Audio-->
                 <mixPort name="primary-out" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY|AUDIO_OUTPUT_FLAG_DEEP_BUFFER">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
@@ -124,11 +130,11 @@
                 <route type="mix" sink="Earpiece"
                        sources="primary-out,fast"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary-out,fast"/>
+                       sources="primary-out,fast,immersive_out"/>
                 <route type="mix" sink="Wired Headset"
-                       sources="primary-out,fast"/>
+                       sources="primary-out,fast,immersive_out"/>
                 <route type="mix" sink="Wired Headphone"
-                       sources="primary-out,fast"/>
+                       sources="primary-out,fast,immersive_out"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary-out,fast"/>
                 <route type="mix" sink="BT SCO Headset"
@@ -136,9 +142,9 @@
                 <route type="mix" sink="BT SCO Car Kit"
                        sources="primary-out,fast"/>
                 <route type="mix" sink="USB Device Out"
-                       sources="primary-out,fast"/>
+                       sources="primary-out,fast,immersive_out"/>
                 <route type="mix" sink="USB Headset Out"
-                       sources="primary-out,fast"/>
+                       sources="primary-out,fast,immersive_out"/>
 		<route type="mix" sink="Proxy"
                        sources="primary-out,fast"/>
                 <route type="mix" sink="primary-in"
