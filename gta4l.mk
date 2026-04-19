@@ -91,6 +91,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libavservices_minijail_vendor
 
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # Camera
 $(call soong_config_set_bool,samsungCameraVars,needs_sec_get_cam_pos_v2,true)
 
